@@ -95,6 +95,34 @@
   .carousel-arrow.next{right:8px;}
   .carousel.on-dark .carousel-arrow{background:rgba(250,247,242,0.16); color:var(--cream);}
   .carousel-slide img{-webkit-user-drag:none; user-drag:none; -webkit-user-select:none; user-select:none;}
+
+  /* ===== Mobile fixes ===== */
+  @media (max-width:720px){
+    /* Header: tighter so all four links fit */
+    nav.site .wrap{gap:12px; padding-top:16px; padding-bottom:16px; flex-wrap:wrap;} /* flex-wrap: safety net for very narrow phones */
+    .wordmark{flex-shrink:0;}
+    .wordmark img{height:34px !important;}
+    .navlinks{gap:14px; font-size:12px;}
+
+    /* Less vertical padding on sections */
+    .section{padding-top:56px; padding-bottom:56px;}
+
+    /* Home hero: stack text on top, carousel below */
+    main[data-page="home"] > section:first-of-type .wrap{flex-direction:column !important; align-items:stretch !important; gap:32px !important;}
+    main[data-page="home"] > section:first-of-type .wrap > div{flex:0 0 auto !important; width:100%; min-width:0;}
+    main[data-page="home"] > section:first-of-type h1{font-size:34px !important;}
+    main[data-page="home"] > section:first-of-type .wrap > div:last-child{padding:18px !important;}
+
+    /* Carousels: shorter so screenshots fit a phone width */
+    .carousel-slide{height:210px !important;}
+    .carousel{min-width:0 !important;} /* lets Product page carousels shrink on very narrow phones */
+
+    /* "Fundraising has a pattern" cards: one column */
+    div[style*="grid-template-columns"]{grid-template-columns:1fr !important;}
+
+    /* Footer links: wrap instead of clipping */
+    footer div.mono[style*="gap:28px"]{flex-wrap:wrap; gap:10px 20px !important; font-size:11px !important;}
+  }
 </style>
 </head>
 <body>
